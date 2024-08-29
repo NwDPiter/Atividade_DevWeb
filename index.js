@@ -43,6 +43,7 @@ app.post('/add', (req, res) => {
             return res.status(500).json({ error: 'Erro ao adicionar o jogo' });
         }
 
+
         // Obtendo o ID do jogo recém-inserido
         const insertedId = results.insertId;
 
