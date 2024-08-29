@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
     });
 });
 
+// Rota para renderizar a página de adicionar jogo
+app.get('/add', (req, res) => {
+    res.render('add');
+});
+
 // Rota para adicionar um jogo
 app.post('/add', (req, res) => {
     const { nome } = req.body; // Desestruturação para obter o nome do jogo
@@ -42,10 +47,6 @@ app.post('/add', (req, res) => {
             console.error(err);
             return res.status(500).json({ error: 'Erro ao adicionar o jogo' });
         }
-
-
-        // Obtendo o ID do jogo recém-inserido
-        const insertedId = results.insertId;
 
         // Redirecionar de volta para a página principal
         res.redirect('/');
